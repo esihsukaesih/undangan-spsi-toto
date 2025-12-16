@@ -378,7 +378,7 @@
         
         <form onsubmit="kirimPesan(event)">
             <input type="text" id="nama" placeholder="Nama Lengkap (Wajib)" required>
-            <input type="text" id="jabatan" placeholder="Jabatan / Unit Kerja (Wajib)" required>
+            <input type="text" id="jabatan" placeholder="seksi (Wajib)" required>
             <select id="kehadiran" required>
                 <option value="">-- Pilih Status Kehadiran --</option>
                 <option value="Hadir">Saya Siap Hadir</option>
@@ -437,7 +437,7 @@
             
             let pesanWA = `*KONFIRMASI KEHADIRAN ACARA KONSOLIDASI & PAW PUK SPKEP SPSI*\n\n`;
             pesanWA += `*Nama:* ${nama}\n`;
-            pesanWA += `*Seksi/Bagian:* ${seksi}\n`;
+            pesanWA += `*Seksi:* ${seksi}\n`;
             pesanWA += `*Status Kehadiran:* ${status}\n`;
             if (ucapan) {
                 pesanWA += `*Keterangan:* ${ucapan}\n`;
@@ -463,4 +463,5 @@
 
 </body>
                 </html>
+
 

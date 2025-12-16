@@ -431,13 +431,13 @@
         function kirimPesan(event) {
             event.preventDefault();
             const nama = document.getElementById('nama').value;
-            const jabatan = document.getElementById('jabatan').value;
+            const seksi = document.getElementById('seksi').value;
             const status = document.getElementById('kehadiran').value;
             const ucapan = document.getElementById('ucapan').value;
             
             let pesanWA = `*KONFIRMASI KEHADIRAN ACARA KONSOLIDASI & PAW PUK SPKEP SPSI*\n\n`;
             pesanWA += `*Nama:* ${nama}\n`;
-            pesanWA += `*Seksi/Bagian:* ${jabatan}\n`;
+            pesanWA += `*Seksi/Bagian:* ${seksi}\n`;
             pesanWA += `*Status Kehadiran:* ${status}\n`;
             if (ucapan) {
                 pesanWA += `*Keterangan:* ${ucapan}\n`;
@@ -445,7 +445,7 @@
             pesanWA += `\n(Pesan ini dikirim otomatis melalui formulir undangan)`;
 
             // Ganti 'NOMOR_HP_ADMIN' dengan nomor WhatsApp Admin Anda (misalnya 628123456789)
-            const nomorAdmin = "081281037978"; // Format internasional tanpa + atau 0 di depan
+            const nomorAdmin = "6281281037978"; // Format internasional tanpa + atau 0 di depan
             const urlWA = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesanWA)}`;
 
             if (status === "Hadir") {
@@ -463,3 +463,4 @@
 
 </body>
                 </html>
+

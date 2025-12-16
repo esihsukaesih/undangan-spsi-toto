@@ -378,7 +378,7 @@
         
         <form onsubmit="kirimPesan(event)">
             <input type="text" id="nama" placeholder="Nama Lengkap (Wajib)" required>
-            <input type="text" id="jabatan" placeholder="seksi (Wajib)" required>
+            <input type="text" id="jabatan" placeholder="Seksi (Wajib)" required>
             <select id="kehadiran" required>
                 <option value="">-- Pilih Status Kehadiran --</option>
                 <option value="Hadir">Saya Siap Hadir</option>
@@ -431,21 +431,21 @@
         function kirimPesan(event) {
             event.preventDefault();
             const nama = document.getElementById('nama').value;
-            const seksi = document.getElementById('seksi').value;
+            const jabatan = document.getElementById('jabatan').value; 
             const status = document.getElementById('kehadiran').value;
             const ucapan = document.getElementById('ucapan').value;
             
             let pesanWA = `*KONFIRMASI KEHADIRAN ACARA KONSOLIDASI & PAW PUK SPKEP SPSI*\n\n`;
             pesanWA += `*Nama:* ${nama}\n`;
-            pesanWA += `*Seksi:* ${seksi}\n`;
+            pesanWA += `*Seksi:* ${jabatan}\n`; // PERUBAHAN DI SINI: Label di pesan WA menjadi 'Seksi'
             pesanWA += `*Status Kehadiran:* ${status}\n`;
             if (ucapan) {
                 pesanWA += `*Keterangan:* ${ucapan}\n`;
             }
             pesanWA += `\n(Pesan ini dikirim otomatis melalui formulir undangan)`;
 
-            // Ganti 'NOMOR_HP_ADMIN' dengan nomor WhatsApp Admin Anda (misalnya 628123456789)
-            const nomorAdmin = "6281281037978"; // Format internasional tanpa + atau 0 di depan
+            // Nomor WhatsApp Admin
+            const nomorAdmin = "6281281037978"; 
             const urlWA = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesanWA)}`;
 
             if (status === "Hadir") {
@@ -462,6 +462,4 @@
     </script>
 
 </body>
-                </html>
-
-
+            </html>

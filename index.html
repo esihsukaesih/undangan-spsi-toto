@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Konsolidasi & PAW PUK SPKEP SPSI PT. Surya Toto Indonesia. Tbk</title>
+    <style>
+        /* --- CSS STYLING --- */
+        :root {
+            --primary-color: #004080; /* Biru Tua SPKEP SPSI */
+            --secondary-color: #FF8C00; /* Oranye Aksen */
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            font-weight: bold;
+        }
+
+        /* Header & Logo */
+        .logo-header {
+            background-color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo-header img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Hero Section - Digunakan untuk Banner Konsolidasi */
+        .hero {
+            background-color: var(--primary-color); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 0; /* Padding dihilangkan karena menggunakan gambar full */
+            height: auto; 
+        }
+        
+        /* Gaya Khusus untuk Banner Gambar */
+        .welcome-banner, .main-banner {
+            width: 100%; 
+            height: auto;
+            display: block; /* Menghilangkan spasi bawah gambar */
+            object-fit: cover; 
+        }
+
+        .welcome-container, .main-container {
+            width: 100%;
+            max-width: 900px; 
+            margin: 0 auto;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 20px;
+        }
+
+        /* Tokoh/Pimpinan Section */
+        .tokoh-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .tokoh {
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .tokoh img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Event Details */
+        .event-details {
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 10px;
+            padding: 40px;
+        }
+
+        .date-box {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            margin: 20px 0;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        .btn {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #e67e00;
+        }
+
+        /* RSVP Form */
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 0 auto;
+            gap: 15px;
+        }
+
+        input, select, textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .tokoh-container { flex-direction: column; align-items: center; }
+            .logo-header img { height: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="logo-header">
+        <img src="TOTO.JPG" alt="TOTO">
+        <img src="Spkep2.png" alt="SPKEP SPSI">
+        <img src="spsi.jpg" alt="aseantuc">
+        <img src="ituc.jpg" alt="ITUC CSI IGB">
+        <img src="industriall.jpg" alt="industriALL">
+    </header>
+
+    <section class="welcome-container" style="padding: 0; background-color: var(--primary-color);">
+        <img src="welcome.png" alt="Selamat Datang Perwakilan dan PUK" class="welcome-banner">
+    </section>
+
+    <section class="hero main-container" style="padding: 0; background-color: var(--primary-color);">
+        <img src="konsol.jpg" alt="Konsolidasi Organisasi & PAW PUK SPKEP SPSI PT. SURYA TOTO INDONESIA. Tbk" class="main-banner">
+    </section>
+
+    <section id="tokoh">
+        <h2 style="color: var(--primary-color);">Tokoh & Pimpinan</h2>
+        <p>Menghadirkan para pimpinan dan pengurus untuk memperkuat organisasi:</p>
+        
+        <div class="tokoh-container">
+            <div class="tokoh">
+                <img src="suhendi.png" alt="SUHENDI, SE">
+                <h3>SUHENDI, SE</h3>
+                <p>Ketua SPSI</p>
+            </div>
+            <div class="tokoh">
+                <img src="Sugeng.jpg" alt="SUGENG S.SOS">
+                <h3>SUGENG S.SOS</h3>
+                <p>Wakabid Organisasi</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="event" style="background-color: #f0f0f0;">
+        <h2 style="color: var(--primary-color);">Detail Acara</h2>
+        <div class="event-details">
+            <h3>Konsolidasi & PAW PUK SPKEP SPSI</h3>
+            <div class="date-box">
+                <h2>20-21 DESEMBER 2025</h2>
+            </div>
+            <p><strong>Lokasi:</strong><br>VILLA ZCO2 BOGOR, JAWABARAT</p>
+            <a href="#" class="btn" onclick="alert('Ini akan membuka Google Maps ke VILLA ZCO2 BOGOR, JAWABARAT')">Lihat Lokasi di Peta</a>
+        </div>
+    </section>
+
+    <section id="rsvp">
+        <h2 style="color: var(--primary-color);">Konfirmasi Kehadiran</h2>
+        <p>Merupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dalam acara Konsolidasi Organisasi & PAW ini.</p>
+        
+        <form onsubmit="kirimPesan(event)">
+            <input type="text" id="nama" placeholder="Nama Lengkap Anda" required>
+            <input type="text" id="jabatan" placeholder="Jabatan / Unit Kerja" required>
+            <select id="kehadiran">
+                <option value="Hadir">Saya Akan Hadir</option>
+                <option value="Tidak Hadir">Saya Berhalangan Hadir</option>
+            </select>
+            <textarea id="ucapan" placeholder="Pesan / Keterangan (Opsional)" rows="4"></textarea>
+            <button type="submit" class="btn">Kirim Konfirmasi</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 SPKEP SPSI PT. Surya Toto Indonesia. Tbk - Dibuat oleh KANG_OBEY</p>
+    </footer>
+
+    <script>
+        // --- JAVASCRIPT SEDERHANA ---
+        function kirimPesan(event) {
+            event.preventDefault();
+            const nama = document.getElementById('nama').value;
+            const status = document.getElementById('kehadiran').value;
+            
+            // Simulasi kirim pesan
+            alert(`Terima kasih, Bapak/Ibu ${nama}. Konfirmasi "${status}" Anda telah kami terima. Sampai jumpa di acara!`);
+        }
+    </script>
+
+</body>
+</html>

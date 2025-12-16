@@ -4,29 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Konsolidasi & PAW PUK SPKEP SPSI PT. Surya Toto Indonesia. Tbk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         /* --- CSS STYLING --- */
         :root {
             --primary-color: #004080; /* Biru Tua SPKEP SPSI */
             --secondary-color: #FF8C00; /* Oranye Aksen */
             --bg-color: #f9f9f9;
-            --text-color: #333;
+            --text-color: #2c3e50; /* Darker text for professionalism */
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
             text-align: center;
+            line-height: 1.6;
+            overflow-x: hidden; /* Mencegah scroll horizontal */
         }
 
         h1, h2, h3 {
-            font-weight: bold;
+            font-weight: 700;
+            margin-top: 0;
         }
 
-        /* Header & Logo */
+        /* --- STYLING HALAMAN DEPAN UNDANGAN (OVERLAY) --- */
+        .welcome-page-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-color); 
+            background-image: url('pattern_bunga_opsional.png'); /* Opsional: tambahkan background pattern elegan */
+            background-size: cover;
+            background-position: center;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .welcome-content {
+            color: white;
+            padding: 40px;
+            max-width: 90%;
+            border-radius: 15px;
+            /* Tambahkan efek kartu/box untuk kontras */
+            background: rgba(0, 0, 0, 0.2); 
+            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .welcome-page-overlay.hidden {
+            opacity: 0;
+            pointer-events: none; /* Penting agar elemen di bawahnya bisa diklik */
+        }
+        
+        .welcome-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+
+        .welcome-content p {
+            font-size: 1.2rem;
+            margin-top: 5px;
+            font-weight: 300;
+        }
+        
+        .welcome-content .kepada {
+            font-size: 1.5rem;
+            margin: 30px 0;
+            padding: 15px 25px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            display: inline-block;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .open-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 30px;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-size: 1.1rem;
+        }
+
+        .open-btn:hover {
+            background-color: #e67e00;
+            transform: scale(1.05);
+        }
+
+        /* --- STYLING KONTEN UTAMA (SAMA DENGAN SEBELUMNYA) --- */
         .logo-header {
             background-color: white;
             padding: 15px;
@@ -35,33 +118,13 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05); 
         }
 
         .logo-header img {
-            height: 40px;
+            height: 45px; 
             width: auto;
             object-fit: contain;
-        }
-
-        /* Hero Section - Digunakan untuk Banner Konsolidasi */
-        .hero {
-            background-color: var(--primary-color); 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            padding: 0; /* Padding dihilangkan karena menggunakan gambar full */
-            height: auto; 
-        }
-        
-        /* Gaya Khusus untuk Banner Gambar */
-        .welcome-banner, .main-banner {
-            width: 100%; 
-            height: auto;
-            display: block; /* Menghilangkan spasi bawah gambar */
-            object-fit: cover; 
         }
 
         .welcome-container, .main-container {
@@ -69,130 +132,230 @@
             max-width: 900px; 
             margin: 0 auto;
         }
-
-        /* Section Styling */
-        section {
-            padding: 60px 20px;
+        
+        .welcome-banner, .main-banner {
+            width: 100%; 
+            height: auto;
+            display: block; 
+            object-fit: cover; 
         }
 
-        /* Tokoh/Pimpinan Section */
+        section {
+            padding: 80px 20px; 
+        }
+        
         .tokoh-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 40px;
-            margin-top: 30px;
+            margin-top: 40px;
         }
 
         .tokoh {
             max-width: 300px;
             text-align: center;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+            transition: transform 0.3s;
+        }
+        
+        .tokoh:hover {
+            transform: translateY(-5px); 
         }
 
         .tokoh img {
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--secondary-color);
-            margin-bottom: 15px;
+            border: 5px solid var(--secondary-color);
+            margin-bottom: 20px;
+            box-shadow: 0 0 0 2px white;
         }
 
-        /* Event Details */
+        .tokoh h3 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .tokoh p {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
         .event-details {
             background-color: white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            max-width: 600px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            max-width: 650px;
             margin: 0 auto;
-            border-radius: 10px;
-            padding: 40px;
+            border-radius: 15px;
+            padding: 50px;
+            border-top: 5px solid var(--secondary-color);
         }
 
         .date-box {
             background-color: var(--primary-color);
             color: white;
-            padding: 20px;
-            margin: 20px 0;
+            padding: 30px 40px;
+            margin: 30px 0;
             display: inline-block;
-            border-radius: 5px;
+            border-radius: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .date-box h2 {
+            font-size: 2.2rem;
+            margin: 0;
+        }
+        
+        .date-box p {
+            font-weight: 300;
+            margin: 5px 0 0 0;
         }
 
         .btn {
             background-color: var(--secondary-color);
             color: white;
-            padding: 12px 25px;
+            padding: 15px 30px;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
             display: inline-block;
-            transition: 0.3s;
-            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .btn:hover {
             background-color: #e67e00;
+            transform: translateY(-2px);
         }
 
-        /* RSVP Form */
         form {
-            display: flex;
-            flex-direction: column;
-            max-width: 400px;
-            margin: 0 auto;
-            gap: 15px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            max-width: 500px;
+            margin: 30px auto 0 auto;
+            display: grid; /* Mengubah display flex menjadi grid untuk form */
+            gap: 20px;
         }
 
         input, select, textarea {
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-family: inherit;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--secondary-color);
+            outline: none;
         }
 
-        /* Footer */
         footer {
             background-color: var(--primary-color);
             color: white;
-            padding: 20px;
+            padding: 30px;
             font-size: 0.9rem;
+            margin-top: 40px;
+        }
+        
+        .footer-logo {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
         }
 
-        /* Responsive */
-        @media (max-width: 600px) {
-            .tokoh-container { flex-direction: column; align-items: center; }
-            .logo-header img { height: 30px; }
+        .audio-controls {
+            margin-top: 20px;
+            opacity: 0.5; 
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 50px 15px; }
+            .event-details { padding: 30px; }
+            .date-box h2 { font-size: 1.8rem; }
+            .logo-header img { height: 35px; }
+            .welcome-content h1 { font-size: 2rem; }
+            .welcome-content .kepada { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
+    
+    <div class="welcome-page-overlay" id="welcomeOverlay">
+        <div class="welcome-content">
+            <h1>UNDANGAN RESMI</h1>
+            <p style="font-size: 1.5rem; color: #ffebcd;">KONSOLIDASI & PAW</p>
+            <p>PUK SPKEP SPSI PT. SURYA TOTO INDONESIA. Tbk</p>
+            
+            <p style="margin-top: 40px; font-weight: 400;">Kepada Yth:</p>
+            <div class="kepada" id="namaTamuDisplay">
+                PERWAKILAN (30 ORANG)
+            </div>
+            <p style="font-weight: 400;">Ditempat</p>
+            
+            <button class="open-btn" onclick="openInvitation()">Buka Undangan</button>
+        </div>
+    </div>
 
+    <audio id="background-music" loop autoplay class="audio-controls">
+        <source src="musik_latar.mp3" type="audio/mpeg"> 
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
     <header class="logo-header">
-        <img src="TOTO.JPG" alt="TOTO">
-        <img src="Spkep2.png" alt="SPKEP SPSI">
-        <img src="spsi.jpg" alt="aseantuc">
-        <img src="industriall.jpg" alt="industriALL">
+        <img src="TOTO.JPG" alt="Logo PT. Surya Toto Indonesia. Tbk">
+        <img src="Spkep2.png" alt="Logo SPKEP SPSI">
+        <img src="spsi.jpg" alt="Logo SPSI">
+        <img src="industriall.jpg" alt="Logo IndustriALL">
     </header>
 
     <section class="welcome-container" style="padding: 0; background-color: var(--primary-color);">
         <img src="welcome.png" alt="Selamat Datang Perwakilan dan PUK" class="welcome-banner">
     </section>
 
-
-
-
-
-
-
-
-    
-
     <section class="hero main-container" style="padding: 0; background-color: var(--primary-color);">
         <img src="konsol.jpg" alt="Konsolidasi Organisasi & PAW PUK SPKEP SPSI PT. SURYA TOTO INDONESIA. Tbk" class="main-banner">
     </section>
 
+    <section id="pembukaan">
+        <h2 style="color: var(--primary-color);">Undangan Resmi Konsolidasi Organisasi</h2>
+        <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem;">Dengan hormat, kami mengundang Bapak/Ibu/Saudara/i dalam agenda penting organisasi yang bertujuan memperkuat solidaritas, menyusun strategi ke depan, serta melaksanakan Pergantian Antar Waktu (PAW) Pengurus Unit Kerja (PUK).</p>
+        <p style="font-weight: 600; color: var(--secondary-color);">"Bersatu Kita Kuat, Solidaritas Adalah Kunci Kemajuan"</p>
+    </section>
+
+    <section id="event" style="background-color: #f0f0f0;">
+        <h2 style="color: var(--primary-color);">Rincian Acara & Lokasi</h2>
+        <div class="event-details">
+            <h3 style="font-size: 1.8rem; color: var(--secondary-color); margin-bottom: 25px;">KONSOLIDASI & PAW PUK SPKEP SPSI</h3>
+            
+            <p style="font-size: 1.1rem; font-weight: 600;">Waktu Pelaksanaan:</p>
+            <div class="date-box">
+                <h2>20 & 21 DESEMBER 2025</h2>
+                <p>Mulai Pukul 11.00 WIB</p>
+            </div>
+            
+            <p style="margin-top: 30px; font-weight: 600;">Tempat Acara:</p>
+            <p style="font-size: 1.2rem; color: var(--text-color);"><strong>VILLA ZCO2 BOGOR, JAWABARAT</strong></p>
+            <p style="color: #7f8c8d;">(Fasilitas Penginapan, Konsumsi, hiburan dan Materi telah disiapkan )</p>
+            
+            <a href="https://maps.app.goo.gl/BXso8xEyPS8rVQPY8?g_st=aw" target="_blank" class="btn">Lihat Lokasi di Google Maps</a>
+        </div>
+    </section>
+
     <section id="tokoh">
-        <h2 style="color: var(--primary-color);">Tokoh & Pimpinan</h2>
-        <p>Menghadirkan para pimpinan dan pengurus untuk memperkuat organisasi:</p>
+        <h2 style="color: var(--primary-color);">Para Pimpinan Organisasi</h2>
+        <p>Kehadiran pimpinan adalah simbol komitmen dan kekuatan kita bersama:</p>
         
         <div class="tokoh-container">
             <div class="tokoh">
@@ -208,50 +371,94 @@
         </div>
     </section>
 
-    <section id="event" style="background-color: #f0f0f0;">
-        <h2 style="color: var(--primary-color);">Detail Acara</h2>
-        <div class="event-details">
-            <h3>Konsolidasi & PAW PUK SPKEP SPSI</h3>
-            <div class="date-box">
-                <h2>20-21 DESEMBER 2025</h2>
-            </div>
-            <p><strong>Lokasi:</strong><br>VILLA ZCO2 BOGOR, JAWABARAT</p>
-            <a href="#" class="btn" onclick="alert('Ini akan membuka Google Maps ke VILLA ZCO2 BOGOR, JAWABARAT')">Lihat Lokasi di Peta</a>
-        </div>
-    </section>
-
-    <section id="rsvp">
-        <h2 style="color: var(--primary-color);">Konfirmasi Kehadiran</h2>
-        <p>Merupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dalam acara Konsolidasi Organisasi & PAW ini.</p>
+    <section id="rsvp" style="background-color: var(--bg-color);">
+        <h2 style="color: var(--primary-color);">Konfirmasi Kehadiran (RSVP)</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 30px;">Mohon kiranya Bapak/Ibu/Saudara/i mengisi formulir di bawah ini untuk kelancaran akomodasi dan pelaksanaan acara.</p>
         
         <form onsubmit="kirimPesan(event)">
-            <input type="text" id="nama" placeholder="Nama Lengkap Anda" required>
-            <input type="text" id="jabatan" placeholder="Jabatan / Unit Kerja" required>
-            <select id="kehadiran">
-                <option value="Hadir">Saya Akan Hadir</option>
+            <input type="text" id="nama" placeholder="Nama Lengkap (Wajib)" required>
+            <input type="text" id="jabatan" placeholder="Jabatan / Unit Kerja (Wajib)" required>
+            <select id="kehadiran" required>
+                <option value="">-- Pilih Status Kehadiran --</option>
+                <option value="Hadir">Saya Siap Hadir</option>
                 <option value="Tidak Hadir">Saya Berhalangan Hadir</option>
             </select>
-            <textarea id="ucapan" placeholder="Pesan / Keterangan (Opsional)" rows="4"></textarea>
-            <button type="submit" class="btn">Kirim Konfirmasi</button>
+            <textarea id="ucapan" placeholder="Pesan / Keterangan Tambahan (Opsional)" rows="4"></textarea>
+            <button type="submit" class="btn">Kirim Konfirmasi Kehadiran</button>
         </form>
     </section>
 
     <footer>
-        <p>© 2025 SPKEP SPSI PT. Surya Toto Indonesia. Tbk - Dibuat oleh KANG_OBEY</p>
+        <div class="footer-logo">PUK SPKEP SPSI PT. SURYA TOTO INDONESIA. Tbk</div>
+        <p>Sekretariat: [jl. MH Thamrin km.7] | Email: [pukspsisti@yahoo.co.id]</p>
+        <p style="margin-top: 10px;">© 2025. Seluruh Hak Cipta Dilindungi. | Desain oleh KANG_OBEY</p>
     </footer>
 
     <script>
         // --- JAVASCRIPT SEDERHANA ---
+        const overlay = document.getElementById('welcomeOverlay');
+        const namaTamuDisplay = document.getElementById('namaTamuDisplay');
+
+        // 1. Ambil Nama Tamu dari URL (Contoh: index.html?to=Bapak_Joko)
+        function getQueryVariable(variable) {
+            const query = window.location.search.substring(1);
+            const vars = query.split("&");
+            for (let i = 0; i < vars.length; i++) {
+                const pair = vars[i].split("=");
+                if (pair[0] === variable) {
+                    return decodeURIComponent(pair[1].replace(/\+/g, " "));
+                }
+            }
+            return "PERWAKILAN (30 ORANG)"; // Default jika tidak ada nama di URL
+        }
+        
+        // Atur nama tamu di tampilan awal
+        const namaTamu = getQueryVariable('to');
+        namaTamuDisplay.innerHTML = namaTamu;
+
+        // 2. Fungsi untuk membuka undangan
+        function openInvitation() {
+            overlay.classList.add('hidden');
+            // Jika ada musik, pastikan diputar setelah interaksi user
+            const music = document.getElementById('background-music');
+            if (music) {
+                music.play().catch(e => console.log("Gagal memutar musik: ", e));
+            }
+        }
+
+        // 3. Fungsi Kirim Pesan WA (Tidak berubah)
         function kirimPesan(event) {
             event.preventDefault();
             const nama = document.getElementById('nama').value;
+            const jabatan = document.getElementById('jabatan').value;
             const status = document.getElementById('kehadiran').value;
+            const ucapan = document.getElementById('ucapan').value;
             
-            // Simulasi kirim pesan
-            alert(`Terima kasih, Bapak/Ibu ${nama}. Konfirmasi "${status}" Anda telah kami terima. Sampai jumpa di acara!`);
+            let pesanWA = `*KONFIRMASI KEHADIRAN ACARA KONSOLIDASI & PAW PUK SPKEP SPSI*\n\n`;
+            pesanWA += `*Nama:* ${nama}\n`;
+            pesanWA += `*Seksi/Bagian:* ${jabatan}\n`;
+            pesanWA += `*Status Kehadiran:* ${status}\n`;
+            if (ucapan) {
+                pesanWA += `*Keterangan:* ${ucapan}\n`;
+            }
+            pesanWA += `\n(Pesan ini dikirim otomatis melalui formulir undangan)`;
+
+            // Ganti 'NOMOR_HP_ADMIN' dengan nomor WhatsApp Admin Anda (misalnya 628123456789)
+            const nomorAdmin = "081281037978"; // Format internasional tanpa + atau 0 di depan
+            const urlWA = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesanWA)}`;
+
+            if (status === "Hadir") {
+                 alert(`Konfirmasi Kehadiran Anda (${status}) telah dicatat. Mohon klik OK untuk mengirimkan detail konfirmasi via WhatsApp ke Admin.`);
+            } else if (status === "Tidak Hadir") {
+                 alert(`Konfirmasi Ketidakhadiran Anda (${status}) telah dicatat. Mohon klik OK untuk mengirimkan detail konfirmasi via WhatsApp ke Admin.`);
+            } else {
+                alert("Mohon pilih status kehadiran.");
+                return;
+            }
+
+            window.open(urlWA, '_blank');
         }
     </script>
 
 </body>
-
-</html>
+    </html>

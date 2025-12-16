@@ -313,6 +313,7 @@
         <source src="musik_latar.mp3" type="audio/mpeg"> 
         Browser Anda tidak mendukung elemen audio.
     </audio>
+    
     <header class="logo-header">
         <img src="TOTO.JPG" alt="Logo PT. Surya Toto Indonesia. Tbk">
         <img src="Spkep2.png" alt="Logo SPKEP SPSI">
@@ -426,7 +427,7 @@
             }
         }
 
-        // 3. Fungsi Kirim Pesan WA (Tidak berubah)
+        // 3. Fungsi Kirim Pesan WA
         function kirimPesan(event) {
             event.preventDefault();
             const nama = document.getElementById('nama').value;
@@ -448,9 +449,9 @@
             const urlWA = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesanWA)}`;
 
             if (status === "Hadir") {
-                 alert(`Konfirmasi Kehadiran Anda (${status}) telah dicatat. Mohon klik OK untuk mengirimkan detail konfirmasi via WhatsApp ke Admin.`);
+                    alert(`Konfirmasi Kehadiran Anda (${status}) telah dicatat. Mohon klik OK untuk mengirimkan detail konfirmasi via WhatsApp ke Admin.`);
             } else if (status === "Tidak Hadir") {
-                 alert(`Konfirmasi Ketidakhadiran Anda (${status}) telah dicatat. Mohon klik OK untuk mengirimkan detail konfirmasi via WhatsApp ke Admin.`);
+                    alert(`Konfirmasi Ketidakhadiran Anda (${status}) telah dicatat. Mohon klik OK untuk mengirimkan detail konfirmasi via WhatsApp ke Admin.`);
             } else {
                 alert("Mohon pilih status kehadiran.");
                 return;
@@ -461,4 +462,4 @@
     </script>
 
 </body>
-    </html>
+                </html>
